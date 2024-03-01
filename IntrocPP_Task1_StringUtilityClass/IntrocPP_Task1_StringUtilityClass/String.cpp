@@ -17,7 +17,19 @@ String::String(const String& _other)
 
 }
 
+//Deconstructor
 String::~String() 
 {
 
 }
+
+String&Length(const size_t Length)
+{
+
+}
+
+String&CharacterAt() 
+{
+
+}
+
