@@ -42,8 +42,9 @@ public:
 	const char& operator[](size_t _index) const;
 
 private:
-	/*
-	* Put your internal data structures and members here
-	*/
+	//Put your internal data structures and members here
+	unsigned int m_length;
+	char* m_string;
+	static const size_t npos = -1;
 };
 
