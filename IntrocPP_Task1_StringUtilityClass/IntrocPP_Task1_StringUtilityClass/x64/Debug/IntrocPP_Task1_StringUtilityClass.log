@@ -1,0 +1,28 @@
+﻿  IntrocPP_Task1_StringUtilityClass.cpp
+  String.cpp
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(16,22): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(18,5): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(18,5): message : while trying to match the argument list '(char *, const char *)'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(26,5): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(26,5): message : while trying to match the argument list '(char *, char *const )'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(69,5): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(69,5): message : while trying to match the argument list '(char *, char *)'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(70,5): error C2660: 'strncat': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(262,1): message : see declaration of 'strncat'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(70,5): message : while trying to match the argument list '(char *, char *const )'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(83,5): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(83,5): message : while trying to match the argument list '(char *, char *const )'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(84,5): error C2660: 'strncat': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(262,1): message : see declaration of 'strncat'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(84,5): message : while trying to match the argument list '(char *, char *)'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(154,9): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(154,9): message : while trying to match the argument list '(char *, char *)'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(202,9): error C2660: 'strncpy': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\string.h(334,1): message : see declaration of 'strncpy'
+C:\Users\deion_w1k\OneDrive\AIE Projects\2024\AIE2024\IntrocPP_Task1_StringUtilityClass\IntrocPP_Task1_StringUtilityClass\String.cpp(202,9): message : while trying to match the argument list '(char *, char *const )'
+  Generating Code...

@@ -15,7 +15,8 @@ String::String(const char* _str)
 {
     m_length = strlen(_str);
     m_string = new char[m_length + 1];
-    strcpy(m_string, _str);
+    strncpy(m_string, _str, m_length);
+    m_string[m_length] = '\0';
 }
 
 // Copy Constructor Funcotion 
@@ -23,7 +24,8 @@ String::String(const String& _other)
 {
     m_length = _other.m_length;
     m_string = new char[m_length + 1];
-    strcpy(m_string, _other.m_string);
+    strncpy(m_string, _other.m_string, m_length);
+    m_string[m_length] = '\0';
 }
 
 // Destructor Function
@@ -66,8 +68,8 @@ bool String::EqualTo(const String& _other) const
 String& String::Append(const String& _str) 
 {
     char* new_string = new char[m_length + _str.m_length + 1];
-    strcpy(new_string, m_string);
-    strcat(new_string, _str.m_string);
+    strncpy(new_string, m_string);
+    strncat(new_string, _str.m_string);
 
     delete[] m_string;
     m_string = new_string;
@@ -80,8 +82,8 @@ String& String::Append(const String& _str)
 String& String::Prepend(const String& _str) 
 {
     char* new_string = new char[m_length + _str.m_length + 1];
-    strcpy(new_string, _str.m_string);
-    strcat(new_string, m_string);
+    strncpy(new_string, _str.m_string);
+    strncat(new_string, m_string);
 
     delete[] m_string;
     m_string = new_string;
@@ -151,7 +153,7 @@ String& String::Replace(const String& _find, const String& _replace)
         char* new_string = new char[m_length + _replace.m_length + 1];
         memcpy(new_string, m_string, pos);
         memcpy(new_string + pos, _replace.m_string, _replace.m_length);
-        strcpy(new_string + pos + _replace.m_length, m_string + pos);
+        strncpy(new_string + pos + _replace.m_length, m_string + pos);
 
         delete[] m_string;
         m_string = new_string;
@@ -199,7 +201,7 @@ String& String::operator=(const String& _str)
         delete[] m_string;
         m_length = _str.m_length;
         m_string = new char[m_length + 1];
-        strcpy(m_string, _str.m_string);
+        strncpy(m_string, _str.m_string);
     }
     return *this;
 }
