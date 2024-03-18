@@ -15,8 +15,7 @@ String::String(const char* _str)
 {
     m_length = strlen(_str);
     m_string = new char[m_length + 1];
-    strncpy(m_string, _str, m_length);
-    m_string[m_length] = '\0';
+    strncpy_s(m_string, m_length + 1, _str, _TRUNCATE);
 }
 
 // Copy Constructor Funcotion 
@@ -24,8 +23,7 @@ String::String(const String& _other)
 {
     m_length = _other.m_length;
     m_string = new char[m_length + 1];
-    strncpy(m_string, _other.m_string, m_length);
-    m_string[m_length] = '\0';
+    strncpy_s(m_string, m_length, _other.m_string, _TRUNCATE);
 }
 
 // Destructor Function
@@ -68,8 +66,8 @@ bool String::EqualTo(const String& _other) const
 String& String::Append(const String& _str) 
 {
     char* new_string = new char[m_length + _str.m_length + 1];
-    strncpy(new_string, m_string);
-    strncat(new_string, _str.m_string);
+    strncpy_s(new_string, m_length + 1, m_string, _TRUNCATE);
+    strncat_s(new_string, m_length + _str.m_length + 1, _str.m_string, _TRUNCATE);
 
     delete[] m_string;
     m_string = new_string;
@@ -82,8 +80,9 @@ String& String::Append(const String& _str)
 String& String::Prepend(const String& _str) 
 {
     char* new_string = new char[m_length + _str.m_length + 1];
-    strncpy(new_string, _str.m_string);
-    strncat(new_string, m_string);
+    strncpy_s(new_string, _str.m_length + 1, _str.m_string, _TRUNCATE);
+    strncat_s(new_string, m_length + _str.m_length + 1, m_string, _TRUNCATE);
+    m_string[m_length] = '\0';
 
     delete[] m_string;
     m_string = new_string;
@@ -119,24 +118,31 @@ String& String::ToUpper()
 // Function to find a substring
 size_t String::Find(const String& _str) 
 {
-    char* ptr = strstr(m_string, _str.m_string);
-    if (ptr)
-        return ptr - m_string;
-    else
-        return npos;
+    for (size_t i = 0; i <= m_length - _str.m_length; ++i)
+    {
+        if (strncmp(m_string + i, _str.m_string, _str.m_length) == 0)
+            return i;
+    }
+    return npos;
 }
 
 // Function to find a substring with a given index
 size_t String::Find(size_t _startIndex, const String& _str) 
 {
-    if (_startIndex >= m_length)
+    if (_startIndex >= m_length || _str.m_length > m_length - _startIndex) // Checking if the start index is valid and the substring can fit in the remaining string
         return npos;
 
-    char* ptr = strstr(m_string + _startIndex, _str.m_string);
-    if (ptr)
-        return ptr - m_string;
-    else
-        return npos;
+    for (size_t i = _startIndex; i <= m_length - _str.m_length; ++i)
+    {
+        if (strncmp(m_string + i, _str.m_string, _str.m_length) == 0)
+        {
+            cout << "Match found at index: " << i << endl;
+            return i;
+        }
+        cout << "No match at index: " << i << ". Checking next index." << endl;
+    }
+    cout << "No match found." << endl;
+    return npos;
 }
 
 // Function to replace one substring with another string 
@@ -152,8 +158,8 @@ String& String::Replace(const String& _find, const String& _replace)
         // Insert the new string
         char* new_string = new char[m_length + _replace.m_length + 1];
         memcpy(new_string, m_string, pos);
-        memcpy(new_string + pos, _replace.m_string, _replace.m_length);
-        strncpy(new_string + pos + _replace.m_length, m_string + pos);
+        strncpy_s(new_string + pos, _replace.m_length + 1, _replace.m_string, _replace.m_length);
+        strncpy_s(new_string + pos + _replace.m_length, m_length - pos + 1, m_string + pos, m_length - pos);
 
         delete[] m_string;
         m_string = new_string;
@@ -181,19 +187,19 @@ String& String::WriteToConsole()
     return *this;
 }
 
-// 
+
 bool String::operator==(const String& _other) 
 {
     return EqualTo(_other);
 }
 
-// 
+
 bool String::operator!=(const String& _other) 
 {
     return !EqualTo(_other);
 }
 
-// 
+
 String& String::operator=(const String& _str) 
 {
     if (this != &_str)
@@ -201,18 +207,18 @@ String& String::operator=(const String& _str)
         delete[] m_string;
         m_length = _str.m_length;
         m_string = new char[m_length + 1];
-        strncpy(m_string, _str.m_string);
+        strncpy_s(m_string, m_length + 1, _str.m_string, _TRUNCATE);
     }
     return *this;
 }
 
-// 
+
 char& String::operator[](size_t _index) 
 { 
     return CharacterAt(_index);
 }
 
-// 
+
 const char& String::operator[](size_t _index) const 
 {
     return CharacterAt(_index);

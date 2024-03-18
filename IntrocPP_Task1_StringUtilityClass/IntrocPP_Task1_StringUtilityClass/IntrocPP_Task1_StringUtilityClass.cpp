@@ -1,20 +1,59 @@
-// IntrocPP_Task1_StringUtilityClass.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include "String.h"
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    // Test 1: Output "Hello, World" to the console
+    String str1 = "Hello, World";
+    str1.WriteToConsole();
+    cout << endl;
+
+    // Testing all the functions and operators
+    String str2 = "Hello";
+    String str3 = "World";
+    String str4;
+
+    // Testing Append
+    str2.Append(", ").Append(str3);
+    str2.WriteToConsole(); 
+    cout << endl;
+
+    // Testing Prepend
+    str3.Prepend("Hello, ");
+    str3.WriteToConsole(); 
+    cout << endl;
+
+    // Testing EqualTo
+    cout << boolalpha << str2.EqualTo(str3) << endl; 
+
+    // Testing Length
+    cout << str2.Length() << endl; 
+
+    // Testing CharacterAt
+   cout << str2.CharacterAt(0) << str2.CharacterAt(1) << endl; 
+
+    // Testing ToUpper and ToLower
+    str2.ToUpper().WriteToConsole(); 
+    cout << endl;
+    str2.ToLower().WriteToConsole(); 
+    cout <<endl;
+
+    // Testing Find
+    str2.ToLower();
+    cout << "String: " << str2.CStr() << ", Substring: " << "World" << endl;
+    cout << "Expected output: 7" << endl;
+    cout << "Actual output: " << str2.Find(String("world")) << endl;
+
+    // Testing Replace
+    str2.Replace("World", "there").WriteToConsole(); 
+    cout << endl;
+
+    // Testing use Append
+    str4.Append(str2);
+    str4.WriteToConsole(); 
+    cout << endl;
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
